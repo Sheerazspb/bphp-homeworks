@@ -15,9 +15,27 @@
                     <li><a href="1.1-intro-and-branching/1.1.2">Задание 1.1.2</a></li>
                 </ul>
             </li>
+			<li>Занятие 1.2. Работа с формами и строками
+                <ul>
+                    <li><a href="1.2-strings-and-forms/1.2.1-registration/form.html">Задание 1.2.1</a></li>
+                    <li><a href="1.2-strings-and-forms/1.2.2-name-standart">Задание 1.2.2</a></li>
+                    <li><a href="1.2-strings-and-forms/1.2.3-additional">Задание 1.2.3 Дополнительное</a></li>
+                </ul>
+            </li>
+			<li>Занятие 1.3. Массивы и циклы
+                <ul>
+                    <li><a href="1.3-arrays-and-functions/1-places">Задание 1.3.1</a></li>
+                    <li><a href="1.3-arrays-and-functions/2-search">Задание 1.3.2</a></li>
+                </ul>
+            </li>
+			<li>Занятие 2.1. Файлы
+                <ul>
+                    <li><a href="2.1-files/2.1.1/csvtojson.php">Задание 2.1.1</a></li>
+                    <li><a href="2.1-files/2.1.2">Задание 2.1.2</a></li>
+                </ul>
+            </li>
         </ul>
     </li>
 </ul>
 </body>
 </html>
-
