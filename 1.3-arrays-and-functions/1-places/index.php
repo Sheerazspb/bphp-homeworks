@@ -20,14 +20,11 @@ function generate($rows, $placesPerRow, $avaliableCount) {
 
 function reserve(&$map, $row, $place) {
 
-    if ($map[$row+1][$place+1] === false) {
-        $map[$row+1][$place+1] = true;
+    if ($map[$row-1][$place-1] === false) {
+        $map[$row-1][$place-1] = true;
         return true;
     }
 }
-
-
-
 
 
 
