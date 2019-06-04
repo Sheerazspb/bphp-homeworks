@@ -58,12 +58,12 @@ function checkPlacesOfMap($map,$requireNearPlaces) {
                     $checkPos = 0;
                 }
             }else {
-                return print_r($places);
+                return $places;
             }
         }     
     }
 }
 
-checkPlacesOfMap($map,2);
+print_r(checkPlacesOfMap($map,2));
 
 ?>
