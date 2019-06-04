@@ -5,16 +5,22 @@ $variable = 3.14;
 //  int, string, null или other
 
 if (is_bool($variable)){
+    $type = $variable;
     echo "$variable is bool";
 } elseif (is_null($variable)) {
+    $type = $variable;
     echo "$variable is null";
 } elseif (is_string($variable)) {
+    $type = $variable;
     echo "$variable is string";
 } elseif (is_float($variable)) {
+    $type = $variable;
     echo "$variable is float";
 } elseif (is_int($variable)) {
+    $type = $variable;
     echo "$variable is int";
 } else {
+    $type = $variable;
     echo "$variable is other";
 }
 ?>
