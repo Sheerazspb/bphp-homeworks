@@ -16,7 +16,7 @@ foreach ($files as $file) {
     if ($file === '.' || $file === '..') {
         continue;
     }
-    if (substr($file, -4) === '.jpg'){
+    if (substr($file, -4) === '.jpg' || substr($file, -4) === '.png' || substr($file, -4) === '.gif'){
     	echo "<img src=\"$file\" alt=\"some pic\" style=\"display: block; width: 500px\"><br>";
 	}
 }
