@@ -43,10 +43,10 @@ class Router
     }
 }
 
-$page = new Router('main');
+$page = new Router('$availableLinks');
 try {
     $page->checkPageName();
-    echo "Вы находитесь на странице {$_GET['page']}";
+    echo "Вы находитесь на странице ['$_GET']";
 
 } catch (WrongHeader $e) {
     header('Location: error.php', 400);
