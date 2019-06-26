@@ -30,12 +30,7 @@ class Router
             throw new WrongHeader('Get request error');
         }
 
-        if (!array_key_exists($_GET['page'], [
-            'article',
-            'news',
-            'about',
-            'main'
-        ])) {
+        if (!array_key_exists($_GET['page'],$availableLinks)) {
             throw new PageNotFound('Page is not exist');
         }
 
@@ -43,7 +38,7 @@ class Router
     }
 }
 
-$page = new Router('$availableLinks');
+$page = new Router($availableLinks);
 try {
     $page->checkPageName();
     echo "Вы находитесь на странице ['$_GET']";
