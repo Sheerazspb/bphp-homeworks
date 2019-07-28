@@ -21,7 +21,7 @@ if ($currentTime - $timeFromCookies < 5) {
     $file = fopen("${login}", 'a');
     fwrite($file, "${date} : ${$ip} \n");
     fclose($file);
-    echo "too many attemts try again later after one minut";
+    echo "too many attempts try again later after one minut";
     return false;
 } else {
     setcookie("date", time());
