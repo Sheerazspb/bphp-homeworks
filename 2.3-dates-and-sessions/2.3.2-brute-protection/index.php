@@ -27,6 +27,14 @@ function check($users) {
     }
 }
 
+function logFile() {
+        $file = 'data.txt';
+        $userFile = fopen($file, 'a');
+        $date = $_POST['login'] . ': ' . date('d.m.Y H:i:s') . '\n';
+        fwrite($userFile, $date);
+        fclose($userFile); 
+}
+
 function usersAttempts($users) {
     session_set_cookie_params(1800);
     session_start();
@@ -38,32 +46,23 @@ function usersAttempts($users) {
  
     if ($_SESSION['login'] === $_POST['login']) {
         
-        $_SESSION['counter'] += 1;
+        $_SESSION['counter']++;
         
         if (((time() - $_SESSION['time']) <= 5) && ($_SESSION['counter'] === 2)) {
             
             echo 'too many attempts try again later after one minut!';
+            logFile();
             
-            $file = 'data.txt';
-            $userFile = fopen($file, 'a');
-            $date = $_POST['login'] . ': ' . date('d.m.Y H:i:s') . "\n";
-            fwrite($userFile, $date);
-            fclose($fpFile);
-            
-        } elseif ((time() - $_SESSION['time']) < 30) {
+        } elseif ((time() - $_SESSION['time']) < 60) {
             $_SESSION['counter']++;
             if ($_SESSION['counter'] > 3) {
                 $_SESSION['counter'] = 0;
-                echo 'too many attempts try again later after one minut!';
                 
-                $file = 'data.txt';
-                $userFile = fopen($file, 'a');
-                $date = $_POST['login'] . ': ' . date('d.m.Y H:i:s') . "\n";
-                fwrite($userFile, $date);
-                fclose($fpFile);
+                echo 'too many attempts try again later after one minut!';
+                logFile();
             }
  
-        } elseif ((time() - $_SESSION['time']) > 30) {
+        } elseif ((time() - $_SESSION['time']) > 60) {
             $_SESSION = [];
             check($users);
             return;
