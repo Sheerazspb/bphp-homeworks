@@ -30,7 +30,7 @@ function check($users) {
 function logFile() {
         $file = 'data.txt';
         $userFile = fopen($file, 'a');
-        $date = $_POST['login'] . ': ' . date('d.m.Y H:i:s') . '\n';
+        $date = $_POST['login'] . ': ' . date('d.m.Y H:i:s') . "\n";
         fwrite($userFile, $date);
         fclose($userFile); 
 }
