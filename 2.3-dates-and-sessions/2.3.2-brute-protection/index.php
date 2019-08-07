@@ -56,9 +56,11 @@ function usersAttempts($users) {
             $_SESSION['counter']++;
             if ($_SESSION['counter'] > 3) {
                 $_SESSION['counter'] = 0;
-                
                 echo 'too many attempts try again later after one minut!';
                 logFile();
+            } else {
+                echo 'incorecct password or login!';
+                return false;
             }
  
         } elseif ((time() - $_SESSION['time']) > 60) {
