@@ -4,10 +4,12 @@ $users = [
     'randomUser' => 'somePassword',
     'janitor' => 'nimbus2000'
 ];
-
 function login($users) {
-    if (array_key_exists($_POST['login'], $users)) {
-        if ($users[$_POST['login']] === $_POST['password']) {
+    
+    $login = isset($_POST['login']) ? $_POST['login'] : '';
+    
+     if (array_key_exists($login, $users)) {
+        if ($users[$_POST['login']] == $_POST['password']) {
             echo 'You are successfully logged in!';
             return true;
         }
@@ -15,26 +17,23 @@ function login($users) {
     echo 'incorecct password or login!';
     return false;
 }
-
 function check($users) {
     if (login($users) === true) {
         exit;
     } else {
-        $_SESSION['login'] = $_POST['login'];
+        $_SESSION['login'] = (isset($_POST['login']));
         $_SESSION['time'] = time();
         $_SESSION['counter'] = 1;
         return;
     }
 }
-
 function logFile() {
         $file = 'data.txt';
         $userFile = fopen($file, 'a');
-        $date = $_POST['login'] . ': ' . date('d.m.Y H:i:s') . "\n";
+        $date = (isset($_POST['login'])) . ': ' . date('d.m.Y H:i:s') . "\n";
         fwrite($userFile, $date);
         fclose($userFile); 
 }
-
 function usersAttempts($users) {
     session_set_cookie_params(1800);
     session_start();
@@ -44,7 +43,7 @@ function usersAttempts($users) {
         return;
     }
  
-    if ($_SESSION['login'] === $_POST['login']) {
+    if ($_SESSION['login'] === (isset($_POST['login']))) {
         
         $_SESSION['counter']++;
         
